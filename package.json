@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "devDependencies": {
+    "@mui/icons-material": "^5.4.2",
     "css-loader": "^6.6.0",
     "html-webpack-plugin": "^5.5.0",
     "style-loader": "^3.3.1",

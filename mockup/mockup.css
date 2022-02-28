@@ -1,0 +1,97 @@
+@font-face {
+    font-family: "kindergarten";
+    src: url("../src/fonts/kindergarten.woff");
+}
+
+ul {
+    list-style-type: none;
+    padding-inline-start: 0px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-family: 'kindergarten';
+}
+
+body {
+    padding: 0px;
+    margin: 0px;
+}
+
+#ctr {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1a1a1a;
+    height: 50px;
+}
+
+header > button {
+    position: absolute;
+    left: 20px;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+header > h1 {
+    font-family: 'kindergarten';
+    color: white;
+}
+
+#app-ctr {
+    display: flex;
+    flex-grow: 1;
+}
+
+#sidebar {
+    padding: 0px 20px 0px 20px;
+    min-width: 200px;
+    max-width: 33vw;
+    background-color: #f6f6f6;
+}
+
+#sidebar li {
+    padding-left: 40px;
+}
+
+#project-ctr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.content {
+    width: calc(100vw - 500px)
+}
+
+.content button {
+    padding: 8px 10px 8px 10px;
+    width: 50px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(85, 136, 212);
+}
+
+.content li {
+    display: flex;
+    padding: 2px;
+    border-radius: 5px;
+    align-items: center;
+    background-color: #f6f6f6;
+}
+
+.content li img {
+    margin-right: 15px;
+}
