@@ -51,15 +51,10 @@ function renderUI() {
     ctr.append(header, appCtr);
 }
 
-function renderModal() {
-    const modalCtr = document.createElement('div');
-    modalCtr.id = 'modal-ctr';
-
-    const modalContent = document.createElement('div');
-    modalContent.classList.add('modal-content');
-    
-
+function displayModal() {
+    const modal = document.querySelector('.modal-ctr');
+    modal.style.display = 'flex';
 }
 
 
-export {renderUI, renderModal};
+export {renderUI, displayModal};

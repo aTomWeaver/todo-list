@@ -1,4 +1,14 @@
-import {renderUI, renderModal} from "./modules/render";
+import {renderUI, displayModal} from "./modules/render";
+import {setProject} from "./modules/events";
 
 renderUI();
-// renderModal();
+
+// modal display
+const addTaskBtn = document.getElementById('add-task-btn');
+addTaskBtn.addEventListener('click', () => displayModal());
+const modalCtr = document.querySelector('.modal-ctr');
+window.addEventListener('click', e => {
+    if (e.target == modalCtr) modalCtr.style.display = 'none';
+})
+
+

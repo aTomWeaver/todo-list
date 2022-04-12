@@ -8,5 +8,29 @@
 </head>
 <body>
     <div id="ctr"></div>
+    <div class="modal-ctr">
+        <div class="modal-content">
+            <label for="task-name">
+                <h2>Task</h2>
+                <input type="text" id="task-name" required>
+            </label>
+            <label for="description">
+                <h2>description</h2>
+                <input type="text" name="description" id="description">
+            </label>
+            <label for="priority-level">
+                <h2>Priority</h2>
+                <select name="priorityLevel" id="priority-level">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                  </select>
+            </label>
+            <label for="dueDate">
+                <h2>Due Date</h2>
+                <input type="date" name="dueDate" id="dueDate">
+            </label>
+        </div>
+    </div>
 </body>
 </html>
