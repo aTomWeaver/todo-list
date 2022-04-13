@@ -1,35 +1,18 @@
 {
-    "project1": {
-        "name": "chores",
-        "tasklist": [
-            {
-                "title": "take out trash",
-                "priority": "high",
-                "due": "May 1st",
-                "notes": "have to do this or the apartment will smell terrible"
-            },
-            {
-                "title": "do the dishes",
-                "priority": "low",
-                "due": "May 9th",
-                "notes": "only a few in the sink to do"
-            }
-        ]
-    },
-    "project2": {
-        "name": "daily",
+    "selected": "misc",
+    "misc": {
         "tasklist": [
             {
                 "title": "work on todo app",
+                "notes": "need to get back in the rhythm",
                 "priority": "high",
-                "due": "today",
-                "notes": "need to get back in the rhythm"
+                "due": "today"
             },
             {
                 "title": "do kanji reviews",
+                "notes": "can\"t let the kanji pile up",
                 "priority": "medium",
-                "due": "today",
-                "notes": "can\"t let the kanji pile up"
+                "due": "today"
             }
         ]
     }

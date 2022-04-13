@@ -34,16 +34,17 @@ function renderUI() {
     contentCtr.classList.add('content');
     const projectTitle = document.createElement('h2');
     projectTitle.innerText = 'today';
-    const addTaskBtn = document.createElement('button');
-    addTaskBtn.id = 'add-task-btn';
-    addTaskBtn.innerText = 'add';
+    const newTaskBtn = document.createElement('button');
+    newTaskBtn.classList.add('btn')
+    newTaskBtn.id = 'new-task-btn';
+    newTaskBtn.innerText = 'add';
     const todoList = document.createElement('ul');
     todoList.classList.add('todo-list');
 
     // APPEND APP-CTR
     sidebar.append(sidebarHeading, projectsLsCtr);
 
-    contentCtr.append(projectTitle, addTaskBtn, todoList);
+    contentCtr.append(projectTitle, newTaskBtn, todoList);
     projectCtr.append(contentCtr);
     appCtr.append(sidebar, projectCtr);
 
