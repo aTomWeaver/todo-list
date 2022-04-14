@@ -19,6 +19,7 @@ h2 {
 body {
     padding: 0px;
     margin: 0px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 #ctr {
@@ -33,6 +34,7 @@ header {
     justify-content: center;
     background-color: #1a1a1a;
     height: 50px;
+    min-width: 500px;
 }
 
 header > button {
@@ -72,7 +74,11 @@ header > h1 {
 }
 
 .content {
-    width: calc(100vw - 500px)
+    width: calc(100vw - 300px);
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .btn {
@@ -95,6 +101,13 @@ header > h1 {
 .content li img {
     margin-right: 15px;
 }
+/* 
+.content h2 {
+    align-self: flex-start;
+}
+.content button {
+    align-self: flex-start;
+} */
 
 /* MODAL */
 
@@ -130,4 +143,37 @@ header > h1 {
     background-color: white;
     color: black;
     margin: 5px;
+}
+
+
+/* TASK CARDS */
+
+.tasklist-ctr {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-ctr {
+    background-color: #f6f6f6;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    max-width: 600px;
+}
+.card-ctr p {
+    margin: 10px 0px 5px 0px;
+}
+.title {
+    font-weight: 700;
+}
+.notes {
+    font-style: italic;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
 }

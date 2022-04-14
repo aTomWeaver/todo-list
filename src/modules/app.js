@@ -8,6 +8,7 @@ const setProject = projectTitle => {
         tasklist: [],
     };
     local.setItem('todo', JSON.stringify(todo));
+    // to create a new project, set 'selected' to current project name and then addTask() like normal
 }
 
 function taskFactory(title, notes, priority, due) {
