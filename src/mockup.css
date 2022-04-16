@@ -7,52 +7,58 @@ ul {
     list-style-type: none;
     padding-inline-start: 0px;
 }
-
 li {
     margin-bottom: 10px;
 }
-
 h2 {
     font-family: 'kindergarten';
+    cursor: default;
+    user-select: none;
 }
-
 body {
     padding: 0px;
     margin: 0px;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-
 #ctr {
     display: flex;
     flex-direction: column;
     height: 100vh;
 }
-
 header {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     background-color: #1a1a1a;
     height: 50px;
     min-width: 500px;
 }
-
-header > button {
-    position: absolute;
-    left: 20px;
-    background-color: white;
-    border: none;
-    border-radius: 5px;
-}
-
 header > h1 {
     font-family: 'kindergarten';
     color: white;
+    cursor: default;
+    user-select: none;
 }
-
+.btn {
+    padding: 8px 10px 8px 10px;
+    width: 100px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #5588d4;
+    cursor: pointer;
+}
 #app-ctr {
     display: flex;
     flex-grow: 1;
+}
+
+#new-project-btn {
+    background-color: black;
+}
+#new-project-btn:active {
+    background-color: rgb(78, 78, 78);
+    border: none;
 }
 
 #sidebar {
@@ -61,9 +67,13 @@ header > h1 {
     max-width: 33vw;
     background-color: #f6f6f6;
 }
-
 #sidebar li {
-    padding-left: 40px;
+    padding-left: 20px;
+    transition: padding-left 0.3s;
+    cursor: pointer;
+}
+#sidebar li:hover {
+    padding-left: 30px;
 }
 
 #project-ctr {
@@ -72,7 +82,6 @@ header > h1 {
     align-items: center;
     flex-grow: 1;
 }
-
 .content {
     width: calc(100vw - 300px);
     min-width: 300px;
@@ -80,16 +89,6 @@ header > h1 {
     flex-direction: column;
     align-items: center;
 }
-
-.btn {
-    padding: 8px 10px 8px 10px;
-    width: 50px;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    background-color: #5588d4;
-}
-
 .content li {
     display: flex;
     padding: 2px;
@@ -97,17 +96,9 @@ header > h1 {
     align-items: center;
     background-color: #f6f6f6;
 }
-
 .content li img {
     margin-right: 15px;
 }
-/* 
-.content h2 {
-    align-self: flex-start;
-}
-.content button {
-    align-self: flex-start;
-} */
 
 /* MODAL */
 
@@ -122,7 +113,6 @@ header > h1 {
     width: 100vw;
     background-color: rgba(0, 0, 0, 0.11);
 }
-
 .modal-content {
     display: flex;
     flex-direction: column;
@@ -133,18 +123,15 @@ header > h1 {
     border-radius: 5px;
     background-color: #5588d4;
 }
-
 .modal-content h2 {
     font-size: 18px;
     margin: 5px 0px 5px 0px;
 }
-
 #add-task-btn {
     background-color: white;
     color: black;
     margin: 5px;
 }
-
 
 /* TASK CARDS */
 
@@ -152,7 +139,6 @@ header > h1 {
     display: flex;
     flex-direction: column;
 }
-
 .card-ctr {
     background-color: #f6f6f6;
     display: flex;
@@ -172,7 +158,6 @@ header > h1 {
 .notes {
     font-style: italic;
 }
-
 .topbar {
     display: flex;
     justify-content: space-between;

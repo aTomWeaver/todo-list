@@ -1,19 +1,15 @@
 {
     "selected": "misc",
-    "misc": {
-        "tasklist": [
-            {
-                "title": "work on todo app",
-                "notes": "need to get back in the rhythm",
-                "priority": "high",
-                "due": "today"
-            },
-            {
-                "title": "do kanji reviews",
-                "notes": "can\"t let the kanji pile up",
-                "priority": "medium",
-                "due": "today"
-            }
-        ]
-    }
+    "projects": {
+        "misc": {
+            "tasklist": [
+                {
+                    "title": "Add some tasks",
+                    "notes": "Go ahead and add some tasks! Create new projects to organize your tasks.",
+                    "priority": "high",
+                    "due": "today"
+                }
+            ]
+        }
+    }   
 }

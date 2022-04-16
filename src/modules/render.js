@@ -1,4 +1,5 @@
 import css from "../mockup.css";
+import { getProjectList } from './app'
 
 function renderUI() {
     const ctr = document.getElementById('ctr');
@@ -6,16 +7,10 @@ function renderUI() {
 
     // || HEADER 
     const header = document.createElement('header');
-    const hamburger = document.createElement('button');
-    hamburger.id = 'hamburger';
-    const hamburgerIcon = document.createElement('img');
-    hamburgerIcon.src = '/src/icons/menu.svg';
     const title = document.createElement('h1');
-    title.innerText = 'todo';
-    
+    title.innerText = 'todo list';
     // APPEND HEADER
-    hamburger.append(hamburgerIcon);
-    header.append(hamburger, title);
+    header.append(title);
 
     // || APP-CTR
     const appCtr = document.createElement('div');
@@ -25,6 +20,10 @@ function renderUI() {
     sidebar.id = 'sidebar';
     const sidebarHeading = document.createElement('h2');
     sidebarHeading.innerText = 'projects';
+    const newProjectBtn = document.createElement('button');
+    newProjectBtn.innerText = 'new project';
+    newProjectBtn.classList.add('btn');
+    newProjectBtn.id = 'new-project-btn';
     const projectsLsCtr = document.createElement('ul');
     projectsLsCtr.id = 'projects-ls-ctr';
 
@@ -40,14 +39,11 @@ function renderUI() {
     newTaskBtn.innerText = 'add';
     const todoList = document.createElement('ul');
     todoList.classList.add('todo-list');
-
     // APPEND APP-CTR
-    sidebar.append(sidebarHeading, projectsLsCtr);
-
+    sidebar.append(sidebarHeading, newProjectBtn, projectsLsCtr);
     contentCtr.append(projectTitle, newTaskBtn, todoList);
     projectCtr.append(contentCtr);
     appCtr.append(sidebar, projectCtr);
-
     // APPEND CTR
     ctr.append(header, appCtr);
 }
@@ -57,6 +53,34 @@ function displayModal() {
     modal.style.display = 'flex';
 }
 
+function renderProjectItem(projectTitle) {
+    const li = document.createElement('li');
+    li.innerText = projectTitle;
+    li.classList.add('project')
+    return li;
+}
+
+function refreshProjectList() {
+    const projectsLsCtr = document.querySelector('#projects-ls-ctr');
+    projectsLsCtr.innerHTML = '';
+    const projectList = getProjectList();
+    for (let i = 0; i < projectList.length; i++) {
+        const item = renderProjectItem(projectList[i]);
+        projectsLsCtr.appendChild(item);
+    }
+    /* get the todo object and create an array of just project names
+        for the length of the array, renderProjectItem on each, appending
+        each item to projects-ls-ctr
+    */
+}
+
+function renderTaskList() {
+    // get tasklist for current project
+    /* for each task (element of tasklist) 
+        fun the renderCard function, passing the task object
+        append all of this to the tasklist area*/
+}
 
 
-export {renderUI, displayModal};
+
+export { renderUI, displayModal, refreshProjectList };
