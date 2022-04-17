@@ -47,14 +47,23 @@ header > h1 {
     color: white;
     background-color: #5588d4;
     cursor: pointer;
+    transition: transform .15s;
+}
+.btn:hover {
+    transform: scale(1.2);
 }
 #app-ctr {
     display: flex;
     flex-grow: 1;
 }
-
+.project-title {
+    font-size: 2em;
+}
 #new-project-btn {
     background-color: black;
+}
+#new-project-btn:hover {
+    background-color: rgb(65, 65, 65);
 }
 #new-project-btn:active {
     background-color: rgb(78, 78, 78);
@@ -69,7 +78,7 @@ header > h1 {
 }
 #sidebar li {
     padding-left: 20px;
-    transition: padding-left 0.3s;
+    transition: padding-left 0.15s;
     cursor: pointer;
 }
 #sidebar li:hover {
@@ -119,9 +128,13 @@ header > h1 {
     align-items: center;
     margin-top: 200px;
     height: 250px;
-    width: 400px;
+    width: 250px;
     border-radius: 5px;
     background-color: #5588d4;
+}
+.modal-content * {
+    border: none;
+    border-radius: 5px;
 }
 .modal-content h2 {
     font-size: 18px;
@@ -147,13 +160,26 @@ header > h1 {
     padding-left: 10px;
     padding-right: 10px;
     border-radius: 10px;
-    max-width: 600px;
+    width: 600px;
+    transition: transform 0.2s;
+}
+.card-ctr:hover {
+    transform: scale(1.02);
 }
 .card-ctr p {
     margin: 10px 0px 5px 0px;
+    user-select: none;
 }
 .title {
     font-weight: 700;
+    transition: all 0.3s;
+}
+.title:hover {
+    transform: scale(1.1);
+    text-decoration: line-through;
+}
+.due {
+    user-select: none;
 }
 .notes {
     font-style: italic;
@@ -161,4 +187,13 @@ header > h1 {
 .topbar {
     display: flex;
     justify-content: space-between;
+}
+.priority-high {
+    background-color: rgb(255, 192, 192);
+}
+.priority-medium {
+    background-color: rgb(252, 236, 202);
+}
+.priority-low {
+    background-color: rgb(211, 211, 255);
 }

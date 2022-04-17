@@ -2,6 +2,7 @@
     "selected": "misc",
     "projects": {
         "misc": {
+            "name": "misc",
             "tasklist": [
                 {
                     "title": "Add some tasks",

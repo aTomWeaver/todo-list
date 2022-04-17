@@ -1,5 +1,5 @@
-import { taskFactory, appendTask, newProject } from "./app";
-import { refreshProjectList } from './render';
+import { taskFactory, appendTask, removeTask, newProject, removeProject } from "./app";
+import { refreshProjectList, renderTaskList, toggleModal, clearModal } from './render';
 
 function addTask() {
     // make sure it doesn't accept null values!
@@ -8,8 +8,18 @@ function addTask() {
     const priorityDropdown = document.getElementById('priority-level');
     const priority = priorityDropdown.options[priorityDropdown.selectedIndex].value;
     const dueDate = document.getElementById('due-date').value;
-    const task = taskFactory(title, notes, priority, dueDate);
-    appendTask(task);
+    if (title != '') {
+        const task = taskFactory(title, notes, priority, dueDate);
+        appendTask(task);
+        renderTaskList();
+        toggleModal();
+        clearModal();
+    } else alert('Your task must have a name.');
+}
+
+function deleteTask(taskIndex) {
+    removeTask(taskIndex);
+    renderTaskList();
 }
 
 function addProject() {
@@ -18,4 +28,10 @@ function addProject() {
     refreshProjectList();
 }
 
-export {addTask, addProject}
+function deleteProject(project) {
+    removeProject(project);
+    refreshProjectList();
+}
+
+
+export {addTask, deleteTask, addProject, deleteProject}

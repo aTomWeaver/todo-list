@@ -1,5 +1,5 @@
 import css from "../mockup.css";
-import { getProjectList } from './app'
+import { getProjectTitles, getProjectTasks, getSelected } from './app'
 
 function renderUI() {
     const ctr = document.getElementById('ctr');
@@ -32,13 +32,14 @@ function renderUI() {
     const contentCtr = document.createElement('div');
     contentCtr.classList.add('content');
     const projectTitle = document.createElement('h2');
-    projectTitle.innerText = 'today';
+    projectTitle.classList.add('project-title')
+    projectTitle.innerText = getSelected();
     const newTaskBtn = document.createElement('button');
     newTaskBtn.classList.add('btn')
     newTaskBtn.id = 'new-task-btn';
     newTaskBtn.innerText = 'add';
-    const todoList = document.createElement('ul');
-    todoList.classList.add('todo-list');
+    const todoList = document.createElement('div');
+    todoList.classList.add('tasklist-ctr');
     // APPEND APP-CTR
     sidebar.append(sidebarHeading, newProjectBtn, projectsLsCtr);
     contentCtr.append(projectTitle, newTaskBtn, todoList);
@@ -48,9 +49,25 @@ function renderUI() {
     ctr.append(header, appCtr);
 }
 
-function displayModal() {
+function renderTitle() {
+    const projectTitle = document.querySelector('.project-title');
+    projectTitle.innerText = getSelected();
+}
+
+function toggleModal() {
     const modal = document.querySelector('.modal-ctr');
-    modal.style.display = 'flex';
+    if (modal.style.display != 'flex') {
+        modal.style.display = 'flex';
+    } else {
+        modal.style.display = 'none';
+    }
+}
+
+function clearModal() {
+    document.getElementById('task-title').value = '';
+    document.getElementById('notes').value = '';
+    document.getElementById('priority-level').selectedIndex = [1];
+    document.getElementById('due-date').value = '';
 }
 
 function renderProjectItem(projectTitle) {
@@ -63,7 +80,7 @@ function renderProjectItem(projectTitle) {
 function refreshProjectList() {
     const projectsLsCtr = document.querySelector('#projects-ls-ctr');
     projectsLsCtr.innerHTML = '';
-    const projectList = getProjectList();
+    const projectList = getProjectTitles();
     for (let i = 0; i < projectList.length; i++) {
         const item = renderProjectItem(projectList[i]);
         projectsLsCtr.appendChild(item);
@@ -74,13 +91,46 @@ function refreshProjectList() {
     */
 }
 
+function renderTaskCard(task, index) {
+    const tasklistCtr = document.querySelector('.tasklist-ctr');
+    const cardCtr = document.createElement('div');
+    cardCtr.classList.add('card-ctr');
+        const topbar = document.createElement('div');
+        topbar.classList.add('topbar');
+            const title = document.createElement('p');
+            title.classList.add('title');
+            title.dataset.index = index;
+
+            title.innerText = task.title;
+            const priority = document.createElement('p');
+            if (task.priority === 'high') {
+                cardCtr.classList.add('priority-high');
+            } else if (task.priority === 'medium') {
+                cardCtr.classList.add('priority-medium');
+            } else if (task.priority === 'low') {
+                cardCtr.classList.add('priority-low');
+            }
+            priority.innerText = task.priority;
+            topbar.append(title, priority);
+        const dueDate = document.createElement('div');
+        dueDate.classList.add('due');
+        dueDate.innerText = task.due;
+        const notes = document.createElement('p');
+        notes.classList.add('notes');
+        notes.innerText = task.notes;
+        cardCtr.append(topbar, dueDate, notes);
+    tasklistCtr.append(cardCtr);
+}
+
 function renderTaskList() {
-    // get tasklist for current project
-    /* for each task (element of tasklist) 
-        fun the renderCard function, passing the task object
-        append all of this to the tasklist area*/
+    const tasklistCtr = document.querySelector('.tasklist-ctr');
+    tasklistCtr.innerHTML = '';
+    const tasklist = getProjectTasks(getSelected());
+    for (let i = 0; i < tasklist.length; i++) {
+        renderTaskCard(tasklist[i], i);
+    }
 }
 
 
 
-export { renderUI, displayModal, refreshProjectList };
+export { renderUI, renderTitle, toggleModal, clearModal, refreshProjectList, renderTaskList };
