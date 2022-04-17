@@ -1,6 +1,12 @@
-import {renderUI, renderTitle, toggleModal, refreshProjectList, renderTaskList} from "./modules/render";
-import {addTask, deleteTask, addProject, deleteProject} from './modules/events'
-import { selectProject } from "./modules/app";
+import {
+    renderUI,
+    renderTitle,
+    toggleModal,
+    refreshProjectList,
+    renderTaskList,
+} from './modules/render';
+import { addTask, deleteTask, addProject } from './modules/events';
+import { selectProject } from './modules/app';
 
 renderUI();
 refreshProjectList();
@@ -13,14 +19,14 @@ const newTaskBtn = document.getElementById('new-task-btn');
 newTaskBtn.addEventListener('click', () => toggleModal());
 
 const modalCtr = document.querySelector('.modal-ctr');
-window.addEventListener('click', e => {
+window.addEventListener('click', (e) => {
     if (e.target == modalCtr) modalCtr.style.display = 'none';
-})
+});
 
 function bindProjectEvents() {
     const projects = document.querySelectorAll('.project');
-    projects.forEach(project => {
-        project.addEventListener('click', e => {
+    projects.forEach((project) => {
+        project.addEventListener('click', (e) => {
             selectProject(e.target.innerText);
             renderTitle();
             renderTaskList();
@@ -31,8 +37,8 @@ function bindProjectEvents() {
 
 function bindTaskEvents() {
     const taskTitle = document.querySelectorAll('.title');
-    taskTitle.forEach(title => {
-        title.addEventListener('click', e => {
+    taskTitle.forEach((title) => {
+        title.addEventListener('click', (e) => {
             deleteTask(e.target.dataset.index);
             bindTaskEvents();
         });
@@ -47,8 +53,6 @@ newProjectBtn.addEventListener('click', () => {
 
 const addTaskBtn = document.getElementById('add-task-btn');
 addTaskBtn.addEventListener('click', () => {
-    addTask()
+    addTask();
     bindTaskEvents();
 });
-
-

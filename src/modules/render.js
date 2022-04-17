@@ -1,11 +1,11 @@
-import css from "../mockup.css";
-import { getProjectTitles, getProjectTasks, getSelected } from './app'
+import '../style.css';
+import { getProjectTitles, getProjectTasks, getSelected } from './app';
 
 function renderUI() {
     const ctr = document.getElementById('ctr');
     console.log('Everything up and running!');
 
-    // || HEADER 
+    // || HEADER
     const header = document.createElement('header');
     const title = document.createElement('h1');
     title.innerText = 'todo list';
@@ -32,10 +32,10 @@ function renderUI() {
     const contentCtr = document.createElement('div');
     contentCtr.classList.add('content');
     const projectTitle = document.createElement('h2');
-    projectTitle.classList.add('project-title')
+    projectTitle.classList.add('project-title');
     projectTitle.innerText = getSelected();
     const newTaskBtn = document.createElement('button');
-    newTaskBtn.classList.add('btn')
+    newTaskBtn.classList.add('btn');
     newTaskBtn.id = 'new-task-btn';
     newTaskBtn.innerText = 'add';
     const todoList = document.createElement('div');
@@ -73,7 +73,7 @@ function clearModal() {
 function renderProjectItem(projectTitle) {
     const li = document.createElement('li');
     li.innerText = projectTitle;
-    li.classList.add('project')
+    li.classList.add('project');
     return li;
 }
 
@@ -91,30 +91,30 @@ function renderTaskCard(task, index) {
     const tasklistCtr = document.querySelector('.tasklist-ctr');
     const cardCtr = document.createElement('div');
     cardCtr.classList.add('card-ctr');
-        const topbar = document.createElement('div');
-        topbar.classList.add('topbar');
-            const title = document.createElement('p');
-            title.classList.add('title');
-            title.dataset.index = index;
+    const topbar = document.createElement('div');
+    topbar.classList.add('topbar');
+    const title = document.createElement('p');
+    title.classList.add('title');
+    title.dataset.index = index;
 
-            title.innerText = task.title;
-            const priority = document.createElement('p');
-            if (task.priority === 'high') {
-                cardCtr.classList.add('priority-high');
-            } else if (task.priority === 'medium') {
-                cardCtr.classList.add('priority-medium');
-            } else if (task.priority === 'low') {
-                cardCtr.classList.add('priority-low');
-            }
-            priority.innerText = task.priority;
-            topbar.append(title, priority);
-        const dueDate = document.createElement('div');
-        dueDate.classList.add('due');
-        dueDate.innerText = task.due;
-        const notes = document.createElement('p');
-        notes.classList.add('notes');
-        notes.innerText = task.notes;
-        cardCtr.append(topbar, dueDate, notes);
+    title.innerText = task.title;
+    const priority = document.createElement('p');
+    if (task.priority === 'high') {
+        cardCtr.classList.add('priority-high');
+    } else if (task.priority === 'medium') {
+        cardCtr.classList.add('priority-medium');
+    } else if (task.priority === 'low') {
+        cardCtr.classList.add('priority-low');
+    }
+    priority.innerText = task.priority;
+    topbar.append(title, priority);
+    const dueDate = document.createElement('div');
+    dueDate.classList.add('due');
+    dueDate.innerText = task.due;
+    const notes = document.createElement('p');
+    notes.classList.add('notes');
+    notes.innerText = task.notes;
+    cardCtr.append(topbar, dueDate, notes);
     tasklistCtr.append(cardCtr);
 }
 
@@ -127,6 +127,11 @@ function renderTaskList() {
     }
 }
 
-
-
-export { renderUI, renderTitle, toggleModal, clearModal, refreshProjectList, renderTaskList };
+export {
+    renderUI,
+    renderTitle,
+    toggleModal,
+    clearModal,
+    refreshProjectList,
+    renderTaskList,
+};
