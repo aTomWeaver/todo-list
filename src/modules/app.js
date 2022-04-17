@@ -39,7 +39,6 @@ const appendTask = task => {
 const removeTask = taskIndex => {
     const project = userTodo.projects[userTodo.selected];
     project.tasklist.splice(taskIndex, 1); 
-    // I won't lie, I don't know why adding one to the index above is necessary but it works for some reason
     updateLocal();
 }
 
@@ -55,13 +54,9 @@ const newProject = projectTitle => {
         updateLocal();
     }
     console.log('local.todo: ' + local.todo +'\n');
-    // to create a new project, set 'selected' to current project name and then addTask() like normal
 }
 
 const removeProject = projectTitle => {
-    // search userTodo object for project title (userTodo.projects[projectTitle])
-    // delete userTodo.projects[projectTitle];
-    // updateLocal
     delete userTodo.projects[projectTitle];
     updateLocal();
 }

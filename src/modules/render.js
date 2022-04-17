@@ -85,10 +85,6 @@ function refreshProjectList() {
         const item = renderProjectItem(projectList[i]);
         projectsLsCtr.appendChild(item);
     }
-    /* get the todo object and create an array of just project names
-        for the length of the array, renderProjectItem on each, appending
-        each item to projects-ls-ctr
-    */
 }
 
 function renderTaskCard(task, index) {

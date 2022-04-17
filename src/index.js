@@ -7,6 +7,7 @@ refreshProjectList();
 bindProjectEvents();
 renderTaskList();
 bindTaskEvents();
+
 // modal display
 const newTaskBtn = document.getElementById('new-task-btn');
 newTaskBtn.addEventListener('click', () => toggleModal());
@@ -37,7 +38,6 @@ function bindTaskEvents() {
         });
     });
 }
-
 
 const newProjectBtn = document.getElementById('new-project-btn');
 newProjectBtn.addEventListener('click', () => {
